@@ -11,7 +11,7 @@ Este sistema oferece uma plataforma robusta e intuitiva para o acompanhamento da
   - [🚀 Primeiros Passos](#primeiros-passos)
   - [🌐 Acesso aos Serviços](#acesso-aos-serviços)
   - [ℹ️ Informações Importantes](#informações-importantes)
-  - [📂 Estrutura do Projeto](#estrutura-do-projeto)
+    
 ## ✨ Visão Geral
 
 Este sistema é uma solução completa para o monitoramento da qualidade do ar, abrangendo:
@@ -84,15 +84,3 @@ Após a execução do `docker-compose up -d`, os seguintes serviços estarão ac
     ```
     Este comando exibe o status de cada container definido no `docker-compose.yml`, indicando se estão ativos, há quanto tempo estão rodando e as portas que estão sendo expostas.
     
-## 📂 Estrutura do Projeto
-
-A estrutura do projeto é organizada da seguinte forma:
-
-CPID_Atividade_DevOps/
-├── CPID-DevOps-AirQuality-Backend/  # Código fonte do backend (FastAPI)
-│   └── ...
-├── CPID-DevOps-AirQuality-DB/       # Scripts e configurações do banco de dados
-│   └── AirQuality-2025-03-28-09-40-01.sql
-├── CPID-DevOps-AirQuality-Frontend/ # Código fonte do frontend (Vue.js)
-│   └── ...
-├── docker-compose.yml              # Arquivo de configuração do Docker Compose
