@@ -10,23 +10,23 @@ Sistema completo de monitoramento da qualidade do ar com backend em Python, fron
 ## Índice
 - [Visão Geral](#visão-geral)
 - [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Configuração dos Serviços](#configuração-dos-serviços)
-- [Arquitetura](#arquitetura)
-- [Persistência de Dados](#persistência-de-dados)
-- [Estrutura de Arquivos](#estrutura-de-arquivos)
-- [Contribuição](#contribuição)
+- [Primeiros Passos](#primeiros-passos)
+- [Acesso aos Serviços](#acesso-aos-serviços)
+- [Informações Importantes](#informações-importantes)
+- [Estrutura do Projeto](#estrutura-do-projeto)
 
 ## Visão Geral
 Solução completa para monitoramento da qualidade do ar:
-- **Backend API**: Python para processar dados de sensores
-- **Frontend Web**: Vue.js para visualização interativa
-- **Database**: MySQL com dados pré-carregados
+- **Backend API**: Python (FastAPI)
+- **Frontend Web**: Vue.js 3
+- **Database**: MySQL 8.0
 
 ## Pré-requisitos
-- Docker
-- Docker Compose
+- Docker 
+- Docker Compose 
+- Git
 
-## Instalação
+## Primeiros Passos
 ```bash
-docker-compose up -d
+git clone https://github.com/FernandesLP/CPID_Atividade_DevOps.git
+cd CPID_Atividade_DevOps
