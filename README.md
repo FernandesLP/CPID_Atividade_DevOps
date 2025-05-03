@@ -36,7 +36,7 @@ Siga estas etapas para colocar o sistema em funcionamento na sua máquina:
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/FernandesLP/CPID_Atividade_DevOps.git](https://github.com/FernandesLP/CPID_Atividade_DevOps.git)
+    git clone https://github.com/FernandesLP/CPID_Atividade_DevOps.git
     ```
 
 2.  **Navegue até o diretório do projeto:**
