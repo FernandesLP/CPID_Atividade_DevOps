@@ -1,0 +1,59 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: air-quality-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: airquality
+      MYSQL_USER: devops
+      MYSQL_PASSWORD: password123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Esse .sql vai rodar automaticamente ao subir o container, se o banco ainda não existir
+      - ./CPID-DevOps-AirQuality-DB/AirQuality-2025-03-28-09-40-01.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      # Verifica se o MySQL está pronto pra uso
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - airquality
+    ports:
+      - "3306:3306"
+
+  backend:
+    image: fernandeslp/cpid-backend:1.0.0
+    container_name: air-quality-backend
+    environment: # Variáveis de ambiente para configuração da conexão com o banco
+      DB_HOSTNAME: "db"  
+      DB_PORT: "3306"
+      DB_NAME: "airquality"
+      DB_USERNAME: "devops"
+      DB_PASSWORD: "password123"
+    ports:
+      - "18003:8003"
+    networks:
+      - airquality
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./CPID-DevOps-AirQuality-Backend:/app  # Monta o código local dentro do container
+      - /app/__pycache__  
+
+  frontend:
+    image: fernandeslp/cpid-frontend:1.0.0
+    container_name: air-quality-frontend
+    ports:
+      - "3000:80"
+    networks:
+      - airquality
+
+networks:
+  airquality:
+    driver: bridge  # Rede padrão do Docker, permite que os serviços conversem entre si
+
+volumes:
+  mysql_data:  # Volume para guardar os dados do banco
