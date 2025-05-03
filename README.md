@@ -30,3 +30,25 @@ Solução completa para monitoramento da qualidade do ar:
 ```bash
 git clone https://github.com/FernandesLP/CPID_Atividade_DevOps.git
 cd CPID_Atividade_DevOps
+
+## 🚀 Execução do Sistema
+
+Para iniciar todos os serviços, execute:
+
+```bash
+#!/bin/bash
+
+echo "▶️ Iniciando containers Docker..."
+docker-compose up -d
+
+echo ""
+echo "✅ Serviços iniciados com sucesso!"
+echo "   As imagens dos containers foram obtidas diretamente do Docker Hub"
+echo "   Não é necessário build local"
+echo ""
+
+echo "🌐 Endpoints disponíveis:"
+echo "  - Frontend:      http://localhost:3000"
+echo "  - Backend (API): http://localhost:18003/docs"
+echo "  - MySQL:        porta 3306"
+echo ""
