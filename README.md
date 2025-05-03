@@ -10,7 +10,8 @@ Este sistema oferece uma plataforma robusta e intuitiva para o acompanhamento da
   - [🛠️ Pré-requisitos](#pré-requisitos)
   - [🚀 Primeiros Passos](#primeiros-passos)
   - [🌐 Acesso aos Serviços](#acesso-aos-serviços)
-    
+  - [ℹ️ Informações Importantes](#informações-importantes)
+
 ## ✨ Visão Geral
 
 Este sistema é uma solução completa para o monitoramento da qualidade do ar, abrangendo:
@@ -60,3 +61,25 @@ Após a execução do `docker-compose up -d`, os seguintes serviços estarão ac
   - **Backend API (FastAPI)**: Acesse a API através do seu navegador ou de uma ferramenta como Postman em `http://localhost:18003`.
   - **Frontend Web (Vue.js)**: A interface web estará disponível em `http://localhost:3000`.
   - **Banco de Dados (MySQL)**: O MySQL estará rodando na porta `3306` do seu localhost, embora geralmente você interaja com ele através do backend.
+
+## ℹ️ Informações Importantes
+
+  - **Banco de Dados MySQL:** O container do MySQL é configurado com as seguintes credenciais padrão:
+      - **Usuário Root:** `root` (senha: `root`)
+      - **Banco de Dados:** `airquality`
+      - **Usuário:** `devops` (senha: `password123`)
+  - **Inicialização do Banco de Dados:** O arquivo `CPID-DevOps-AirQuality-DB/AirQuality-2025-03-28-09-40-01.sql` será executado automaticamente na primeira vez que o container do MySQL for iniciado, criando a estrutura inicial do banco de dados.
+  - **Variáveis de Ambiente:** As informações de conexão com o banco de dados (hostname, porta, nome do banco, usuário e senha) para o backend são declaradas diretamente no arquivo `docker-compose.yml` através da seção `environment` do serviço `backend`. Optei por esta abordagem em vez de utilizar um arquivo `.env` devido a problemas de acesso que foram identificados pelo backend em algumas configurações.
+  - **Volumes:** Um volume Docker chamado `mysql_data` é utilizado para persistir os dados do banco de dados, garantindo que os dados não sejam perdidos entre reinicializações dos containers. O código do backend também é montado dentro do container para facilitar o desenvolvimento (embora neste cenário de imagens prontas, isso seja mais para inspeção).
+  - **Rede Docker:** Uma rede Docker chamada `airquality` é criada para permitir a comunicação entre os containers do backend, frontend e banco de dados.
+  - **Healthcheck do MySQL:** O container do MySQL possui um healthcheck configurado para garantir que o serviço esteja pronto antes que outros serviços dependentes (como o backend) tentem se conectar.
+  - **Encerrando a Aplicação:** Para interromper e remover todos os containers definidos no `docker-compose.yml`, utilize o seguinte comando no mesmo diretório do arquivo:
+    ```bash
+    docker-compose down
+    ```
+    Este comando encerra graciosamente todos os serviços em execução.
+  - **Verificando o Status dos Serviços:** Para verificar se todos os containers foram iniciados corretamente e estão rodando sem problemas, você pode usar o seguinte comando:
+    ```bash
+    docker-compose ps
+    ```
+    Este comando exibe o status de cada container definido no `docker-compose.yml`, indicando se estão ativos, há quanto tempo estão rodando e as portas que estão sendo expostas.
