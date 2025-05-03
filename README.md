@@ -36,23 +36,10 @@ Siga estas etapas para executar o sistema em sua máquina:
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/FernandesLP/CPID_Atividade_DevOps.git](https://github.com/FernandesLP/CPID_Atividade_DevOps.git)
+   git clone https://github.com/FernandesLP/CPID_Atividade_DevOps.git
+
+
+2. Navegue até o diretório do projeto
+   ```bash
    cd CPID_Atividade_DevOps
    
-2. Acesso aos Serviços
-#!/bin/bash
-
-echo "▶️ Iniciando containers Docker..."
-docker-compose up -d
-
-echo ""
-echo "✅ Serviços iniciados com sucesso!"
-echo "   As imagens dos containers foram obtidas diretamente do Docker Hub."
-echo "   Não é necessário realizar um build local."
-echo ""
-
-echo "🌐 Endpoints disponíveis:"
-echo "   - Frontend:     http://localhost:3000"
-echo "   - Backend (API): http://localhost:18003/docs"
-echo "   - MySQL:        porta 3306"
-echo ""
