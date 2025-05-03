@@ -83,6 +83,11 @@ Após a execução do `docker-compose up -d`, os seguintes serviços estarão ac
     docker-compose ps
     ```
     Este comando exibe o status de cada container definido no `docker-compose.yml`, indicando se estão ativos, há quanto tempo estão rodando e as portas que estão sendo expostas.
-    É importante ressaltar que a arquitetura e implementação das funcionalidades do backend e do frontend foram responsabilidade dos orientadores desta atividade. Minha contribuição específica se concentrou na containerização da aplicação   utilizando Docker, o que envolveu a criação e configuração do arquivo docker-compose.yml para orquestrar os diferentes serviços (banco de dados, backend e frontend) em containers isolados e interconectados.
+ 
+## Observação sobre o Desenvolvimento
+
+É importante ressaltar que a arquitetura e implementação das funcionalidades do **backend** e do **frontend** foram responsabilidade dos orientadores desta atividade. Minha contribuição específica se concentrou na **containerização da aplicação utilizando Docker**, o que envolveu a criação e configuração do arquivo `docker-compose.yml` para orquestrar os diferentes serviços (banco de dados, backend e frontend) em containers isolados e interconectados.
 
 Essa distinção é crucial para entender o escopo do meu trabalho, que se focou em garantir um ambiente de execução consistente e gerenciável para a aplicação desenvolvida pelos orientadores.
+
+
